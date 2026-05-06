@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tanvi Gupta — AI/ML & Full Stack Developer</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
@@ -124,7 +124,7 @@
         }
 
         /* Splash Screen */
-        .splash {
+        /* .splash {
             position: fixed;
             inset: 0;
             z-index: 1000;
@@ -205,6 +205,200 @@
                 opacity: 0;
                 visibility: hidden;
                 transform: scale(1.03);
+            }
+        } */
+        .splash {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            cursor: pointer;
+            background:
+                radial-gradient(circle at 25% 25%, var(--glow-gold), transparent 30%),
+                radial-gradient(circle at 75% 30%, var(--glow-cyan), transparent 30%),
+                var(--bg);
+            transition: opacity 0.7s ease, visibility 0.7s ease, transform 0.7s ease;
+        }
+
+        .splash.hide {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(1.04);
+            pointer-events: none;
+        }
+
+        .splash-card {
+            position: relative;
+            text-align: center;
+            padding: 2.4rem;
+            animation: splashPop 0.85s ease both;
+        }
+
+        .splash-logo-wrap {
+            position: relative;
+            width: 104px;
+            height: 104px;
+            margin: 0 auto 22px;
+            display: grid;
+            place-items: center;
+        }
+
+        .splash-logo {
+            width: 86px;
+            height: 86px;
+            border-radius: 26px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border2);
+            background: var(--bg3);
+            color: var(--gold);
+            font-family: "Playfair Display", serif;
+            font-size: 2.1rem;
+            font-weight: 900;
+            box-shadow: var(--shadow);
+            animation: logoFloat 2.2s ease-in-out infinite;
+        }
+
+        .splash-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            border: 1px solid var(--gold);
+            opacity: 0.45;
+            animation: rotateRing 4s linear infinite;
+        }
+
+        .splash-ring::before,
+        .splash-ring::after {
+            content: "";
+            position: absolute;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--cyan);
+        }
+
+        .splash-ring::before {
+            top: -5px;
+            left: 50%;
+        }
+
+        .splash-ring::after {
+            bottom: -5px;
+            left: 50%;
+            background: var(--gold);
+        }
+
+        .splash-kicker {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.22em;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .splash h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.2rem, 5vw, 4.5rem);
+            letter-spacing: -0.04em;
+        }
+
+        .splash-role {
+            margin-top: 10px;
+            color: var(--text2);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.8rem;
+        }
+
+        #splashRole {
+            color: var(--cyan);
+        }
+
+        .splash-line {
+            width: 250px;
+            height: 4px;
+            border-radius: 99px;
+            overflow: hidden;
+            margin: 26px auto 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+        .splash-line span {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--gold), var(--cyan), var(--violet));
+            animation: loadLine 2.8s ease forwards;
+        }
+
+        .splash-skip {
+            margin-top: 14px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.65rem;
+            color: var(--text3);
+            opacity: 0.85;
+        }
+
+        .splash-orb {
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            filter: blur(10px);
+            opacity: 0.25;
+        }
+
+        .orb-1 {
+            left: 12%;
+            top: 24%;
+            background: var(--gold);
+            animation: orbMove1 5s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            right: 14%;
+            bottom: 20%;
+            background: var(--cyan);
+            animation: orbMove2 5.5s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            50% {
+                transform: translateY(-8px) rotate(-2deg);
+            }
+        }
+
+        @keyframes rotateRing {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes orbMove1 {
+            50% {
+                transform: translate(35px, -25px) scale(1.12);
+            }
+        }
+
+        @keyframes orbMove2 {
+            50% {
+                transform: translate(-30px, 25px) scale(1.1);
+            }
+        }
+
+        @keyframes loadLine {
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes splashPop {
+            from {
+                opacity: 0;
+                transform: translateY(22px) scale(0.95);
             }
         }
 
@@ -1117,6 +1311,259 @@
             border-color: var(--gold);
         }
 
+
+
+        /* Fixed Social Icons */
+        .fixed-socials {
+            position: fixed;
+            left: 24px;
+            bottom: 28px;
+            z-index: 450;
+            display: grid;
+            gap: 10px;
+        }
+
+        .fixed-socials a,
+        .scroll-top {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            border: 1px solid var(--border2);
+            background: var(--nav-bg);
+            backdrop-filter: blur(18px);
+            color: var(--text2);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.72rem;
+            box-shadow: var(--shadow);
+            transition: 0.25s ease;
+        }
+
+        .fixed-socials a:hover,
+        .scroll-top:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        .floating-socials {
+            position: fixed;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 200;
+        }
+
+        .social-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border);
+
+            backdrop-filter: blur(12px);
+
+            color: var(--text2);
+            font-size: 1.2rem;
+
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-4px) scale(1.08);
+
+            color: var(--gold);
+            border-color: var(--gold);
+
+            box-shadow: 0 10px 30px rgba(240, 192, 64, 0.18);
+        }
+
+        .scroll-top {
+            position: fixed;
+            right: 24px;
+            bottom: 28px;
+            z-index: 450;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .scroll-top.show-scroll {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Achievement Counters */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .stat-card {
+            padding: 1.35rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--bg3);
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .stat-number {
+            font-family: "Playfair Display", serif;
+            font-size: 2.35rem;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .stat-label {
+            margin-top: 8px;
+            color: var(--text2);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.68rem;
+        }
+
+        /* Project Action Buttons */
+        .project-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: auto;
+        }
+
+        .project-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px 11px;
+            border-radius: 8px;
+            border: 1px solid var(--border2);
+            color: var(--text2);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.68rem;
+            transition: 0.22s ease;
+        }
+
+        .project-action.primary {
+            color: #101010;
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .project-action:hover {
+            transform: translateY(-3px);
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .project-action.primary:hover {
+            color: #101010;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            margin: 2rem auto 0;
+            max-width: 660px;
+            display: grid;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg3);
+            color: var(--text);
+            padding: 13px 14px;
+            outline: none;
+            font-family: "Outfit", sans-serif;
+            transition: 0.25s ease;
+        }
+
+        .contact-form textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px var(--glow-gold);
+        }
+
+        .form-status {
+            min-height: 20px;
+            color: var(--text2);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.72rem;
+            text-align: center;
+        }
+
+        .form-status.success {
+            color: var(--emerald);
+        }
+
+        .form-status.error {
+            color: #f87171;
+        }
+
+        .magnetic-card {
+            will-change: transform;
+        }
+
+        @media (max-width: 940px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 620px) {
+            .fixed-socials {
+                left: 14px;
+                bottom: 18px;
+            }
+
+            .scroll-top {
+                right: 14px;
+                bottom: 18px;
+            }
+
+            .fixed-socials a,
+            .scroll-top {
+                width: 38px;
+                height: 38px;
+            }
+
+            .stats-grid,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Contact */
         .contact-inner {
             max-width: 760px;
@@ -1270,33 +1717,65 @@
             border-radius: 99px;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
-    <!--
-    RESUME LINK SETUP:
-    1. Upload resume PDF to Google Drive
-    2. Right click file > Share > Anyone with the link > Viewer
-    3. Put your Drive VIEW link below in RESUME_VIEW_LINK
-    4. Copy file ID from Drive URL and put it in RESUME_DOWNLOAD_LINK
 
-    Example Drive view link:
-    https://drive.google.com/file/d/FILE_ID/view?usp=sharing
 
-    Example download link:
-    https://drive.google.com/uc?export=download&id=FILE_ID
-  -->
-
-    <div class="splash">
+    <!-- <div class="splash">
         <div class="splash-card">
             <div class="splash-logo">TG</div>
             <h1>Tanvi Gupta</h1>
             <p>AI/ML · Full Stack · Research Portfolio</p>
             <div class="splash-line"><span></span></div>
         </div>
+    </div> -->
+    <div class="splash" id="splash">
+        <div class="splash-orb orb-1"></div>
+        <div class="splash-orb orb-2"></div>
+    
+        <div class="splash-card">
+            <div class="splash-logo-wrap">
+                <div class="splash-logo">TG</div>
+                <div class="splash-ring"></div>
+            </div>
+    
+            <p class="splash-kicker">WELCOME TO MY PORTFOLIO</p>
+            <h1>Tanvi Gupta</h1>
+    
+            <p class="splash-role">
+                <span id="splashRole">AI/ML Developer</span>
+            </p>
+    
+            <div class="splash-line"><span></span></div>
+            <p class="splash-skip">Click anywhere or press Enter to skip</p>
+        </div>
     </div>
 
     <div class="noise"></div>
+
+    <!-- <div class="fixed-socials" aria-label="Fixed social links">
+            <a href="https://github.com/tanvi20206" target="_blank" title="GitHub">GH</a>
+            <a href="https://www.linkedin.com/in/tanvi-gupta-96b676284/" target="_blank" title="LinkedIn">IN</a>
+            <a href="mailto:tanvigupta848@gmail.com" title="Email">@</a>
+        </div> -->
+    <div class="floating-socials">
+    
+        <a href="https://github.com/tanvi20206" target="_blank" class="social-icon">
+            <i class="fab fa-github"></i>
+        </a>
+    
+        <a href="https://www.linkedin.com/in/tanvi-gupta-96b676284/" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    
+        <a href="mailto:tanvigupta848@gmail.com" class="social-icon">
+            <i class="fas fa-envelope"></i>
+        </a>
+    
+    </div>
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
 
     <nav>
         <a class="nav-logo" href="#hero">Tanvi Gupta</a>
@@ -1428,37 +1907,37 @@
             </div>
 
             <div class="skills-grid">
-                <div class="skill-card reveal zoom-in">
+                <div class="skill-card reveal zoom-in magnetic-card">
                     <div class="skill-icon">💻</div>
                     <h3>Languages</h3>
                     <p>Java · Python · JavaScript · SQL</p>
                 </div>
 
-                <div class="skill-card reveal zoom-in">
+                <div class="skill-card reveal zoom-in magnetic-card">
                     <div class="skill-icon">🌐</div>
                     <h3>Web Technologies</h3>
                     <p>HTML5 · CSS3 · Angular · ReactJS · Node.js · Express.js · REST APIs</p>
                 </div>
 
-                <div class="skill-card reveal zoom-in">
+                <div class="skill-card reveal zoom-in magnetic-card">
                     <div class="skill-icon">🤖</div>
                     <h3>AI / ML</h3>
                     <p>TensorFlow · Scikit-learn · OpenCV · Pandas · NumPy · Machine Learning</p>
                 </div>
 
-                <div class="skill-card reveal zoom-in">
+                <div class="skill-card reveal zoom-in magnetic-card">
                     <div class="skill-icon">🗄️</div>
                     <h3>Databases</h3>
                     <p>MySQL · PostgreSQL · Relational Database Concepts</p>
                 </div>
 
-                <div class="skill-card reveal zoom-in">
+                <div class="skill-card reveal zoom-in magnetic-card">
                     <div class="skill-icon">🛠️</div>
                     <h3>Tools & Platforms</h3>
                     <p>GitHub · Postman · Streamlit · Plotly · Tableau</p>
                 </div>
 
-                <div class="skill-card reveal zoom-in">
+                <div class="skill-card reveal zoom-in magnetic-card">
                     <div class="skill-icon">🧠</div>
                     <h3>Core Concepts</h3>
                     <p>OOPs · DSA · MVC Architecture · SDLC · API Testing · Debugging</p>
@@ -1525,12 +2004,12 @@
             </div>
 
             <div class="projects-grid">
-                <div class="project-card reveal zoom-in">
+                <div class="project-card reveal zoom-in magnetic-card">
                     <div class="project-top">
                         <div class="project-icon">🌿</div>
                         <span class="badge">🏆 2nd Prize</span>
                     </div>
-                    <div class="project-cat">AI · Computer Vision · Award Winning</div>
+                    <div class="project-cat">AI · CNN · Award Winning</div>
                     <h3>Green Health Monitor</h3>
                     <p>
                         Deep learning-based plant disease detection system using TensorFlow and OpenCV.
@@ -1540,11 +2019,14 @@
                         <span class="chip">CNN</span><span class="chip">TensorFlow</span><span
                             class="chip">OpenCV</span><span class="chip">Streamlit</span>
                     </div>
-                    <a class="project-link" href="https://github.com/tanvi20206/launchhack" target="_blank">View Project
-                        →</a>
+                    <div class="project-actions">
+                    
+                        <a class="project-action" href="https://github.com/tanvi20206/launchhack" target="_blank">GitHub
+                            →</a>
+                    </div>
                 </div>
 
-                <div class="project-card reveal zoom-in">
+                <div class="project-card reveal zoom-in magnetic-card">
                     <div class="project-top">
                         <div class="project-icon">🧠</div>
                     </div>
@@ -1559,10 +2041,13 @@
                         <span class="chip">Python</span><span class="chip">Scikit-learn</span><span
                             class="chip">Pandas</span><span class="chip">Plotly</span>
                     </div>
-                    <a class="project-link" href="#internship">Internship Project →</a>
+                    <div class="project-actions">
+                    
+                        <a class="project-action" href="#contact">Ask Details →</a>
+                    </div>
                 </div>
 
-                <div class="project-card reveal zoom-in">
+                <div class="project-card reveal zoom-in magnetic-card">
                     <div class="project-top">
                         <div class="project-icon">🗺️</div>
                     </div>
@@ -1576,11 +2061,13 @@
                         <span class="chip">JavaScript</span><span class="chip">Leaflet.js</span><span
                             class="chip">LocalStorage</span>
                     </div>
-                    <a class="project-link" href="https://github.com/tanvi20206/MAPTY-APPLICATION" target="_blank">View
-                        Project →</a>
+                    <div class="project-actions">
+                    
+                        <a class="project-action" href="https://github.com/tanvi20206/MAPTY-APPLICATION" target="_blank">GitHub →</a>
+                    </div>
                 </div>
 
-                <div class="project-card reveal zoom-in">
+                <div class="project-card reveal zoom-in magnetic-card">
                     <div class="project-top">
                         <div class="project-icon">🍴</div>
                     </div>
@@ -1594,11 +2081,14 @@
                         <span class="chip">JavaScript</span><span class="chip">MVC</span><span class="chip">REST
                             API</span>
                     </div>
-                    <a class="project-link" href="https://github.com/tanvi20206/Forkify---A-Recipe-FindingWebsite"
-                        target="_blank">View Project →</a>
+                    <div class="project-actions">
+                    
+                        <a class="project-action" href="https://github.com/tanvi20206/Forkify---A-Recipe-FindingWebsite"
+                            target="_blank">GitHub →</a>
+                    </div>
                 </div>
 
-                <div class="project-card reveal zoom-in">
+                <div class="project-card reveal zoom-in magnetic-card">
                     <div class="project-top">
                         <div class="project-icon">💱</div>
                     </div>
@@ -1611,11 +2101,13 @@
                     <div class="chips">
                         <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
                     </div>
-                    <a class="project-link" href="https://github.com/tanvi20206/Bankist-Application"
-                        target="_blank">View Project →</a>
+                    <div class="project-actions">
+                    
+                        <a class="project-action" href="https://github.com/tanvi20206/Bankist-Application" target="_blank">GitHub →</a>
+                    </div>
                 </div>
 
-                <div class="project-card reveal zoom-in">
+                <div class="project-card reveal zoom-in magnetic-card">
                     <div class="project-top">
                         <div class="project-icon">🔍</div>
                     </div>
@@ -1629,8 +2121,10 @@
                         <span class="chip">JavaScript</span><span class="chip">AI</span><span class="chip">Code
                             Quality</span>
                     </div>
-                    <a class="project-link" href="https://github.com/tanvi20206/CODE-REVIEWER" target="_blank">View
-                        Project →</a>
+                    <div class="project-actions">
+                    
+                        <a class="project-action" href="https://github.com/tanvi20206/CODE-REVIEWER" target="_blank">GitHub →</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1755,10 +2249,29 @@
                 <h2 class="sec-title">Achievements & <em>Certifications</em></h2>
             </div>
 
+            <div class="stats-grid reveal">
+                <div class="stat-card">
+                    <div class="stat-number" data-count="92">0</div>
+                    <div class="stat-label">Plant Disease Model Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-label">LaunchHack Global Entries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="2">0</div>
+                    <div class="stat-label">IEEE Research Papers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label">Top % Dean's List</div>
+                </div>
+            </div>
+
             <div class="ach-grid">
 
                 <!-- 1 -->
-                <div class="ach-card">
+                <div class="ach-card magnetic-card">
                     <div class="ach-top">
                         <div class="ach-icon">🥇</div>
                         <span class="ach-star">✨</span>
@@ -1769,7 +2282,7 @@
                 </div>
 
                 <!-- 2 -->
-                <div class="ach-card">
+                <div class="ach-card magnetic-card">
                     <div class="ach-top">
                         <div class="ach-icon">🏆</div>
                         <span class="ach-star">🎉</span>
@@ -1780,7 +2293,7 @@
                 </div>
 
                 <!-- 3 -->
-                <div class="ach-card">
+                <div class="ach-card magnetic-card">
                     <div class="ach-top">
                         <div class="ach-icon">📄</div>
                         <span class="ach-star">⭐</span>
@@ -1804,7 +2317,7 @@
                 </div>
 
                 <!-- 4 -->
-                <div class="ach-card">
+                <div class="ach-card magnetic-card">
                     <div class="ach-top">
                         <div class="ach-icon">🎓</div>
                         <span class="ach-star">⭐</span>
@@ -1815,7 +2328,7 @@
                 </div>
 
                 <!-- 5 -->
-                <div class="ach-card">
+                <div class="ach-card magnetic-card">
                     <div class="ach-top">
                         <div class="ach-icon">📚</div>
                         <span class="ach-star">📜</span>
@@ -1826,7 +2339,7 @@
                 </div>
 
                 <!-- 6 -->
-                <div class="ach-card">
+                <div class="ach-card magnetic-card">
                     <div class="ach-top">
                         <div class="ach-icon">🎯</div>
                         <span class="ach-star">🎯</span>
@@ -1856,6 +2369,17 @@
                     <a class="btn btn-ghost" href="https://github.com/tanvi20206" target="_blank">GitHub</a>
                     <a class="btn btn-ghost" id="contactResume" target="_blank">Resume ↗</a>
                 </div>
+<form class="contact-form" id="contactForm">
+    <div class="form-row">
+        <input type="text" name="from_name" placeholder="Your Name" required />
+        <input type="email" name="reply_to" placeholder="Your Email" required />
+    </div>
+    <input type="text" name="subject" placeholder="Subject" required />
+    <textarea name="message" placeholder="Write your message..." required></textarea>
+    <button class="btn btn-gold" type="submit" style="justify-content:center; border:none; cursor:pointer;">Send Message
+        ↗</button>
+    <div class="form-status" id="formStatus"></div>
+</form>
             </div>
         </div>
     </section>
@@ -1880,6 +2404,45 @@
         const downloadBtn = document.getElementById("downloadResumeHero");
         downloadBtn.href = RESUME_DOWNLOAD_LINK;
         downloadBtn.setAttribute("download", "Tanvi_Gupta_Resume.pdf");
+            const splash = document.getElementById("splash");
+            const splashRole = document.getElementById("splashRole");
+
+            if (splash && splashRole) {
+                const splashRoles = [
+                    "AI/ML Developer",
+                    "Full Stack Developer",
+                    "Research-Oriented Builder",
+                    "Frontend Engineer",
+                    "Java + Python Developer"
+                ];
+
+                let splashRoleIndex = 0;
+
+                const roleInterval = setInterval(() => {
+                    splashRoleIndex = (splashRoleIndex + 1) % splashRoles.length;
+                    splashRole.textContent = splashRoles[splashRoleIndex];
+                }, 650);
+
+                function closeSplash() {
+                    clearInterval(roleInterval);
+                    splash.classList.add("hide");
+
+                    setTimeout(() => {
+                        splash.remove();
+                    }, 800);
+                }
+
+                setTimeout(closeSplash, 3200);
+
+                splash.addEventListener("click", closeSplash);
+                splash.addEventListener("touchstart", closeSplash);
+
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === "Escape") {
+                        closeSplash();
+                    }
+                });
+            }
 
         /* Theme Toggle */
         const html = document.documentElement;
@@ -2047,6 +2610,92 @@
             el.style.transitionDelay = `${Math.min(index % 6, 5) * 0.06}s`;
             observer.observe(el);
         });
+
+
+    /* Scroll To Top */
+    const scrollTopBtn = document.getElementById("scrollTop");
+    window.addEventListener("scroll", () => {
+        scrollTopBtn.classList.toggle("show-scroll", window.scrollY > 650);
+    });
+    scrollTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    /* Achievement Counter Animation */
+    const counters = document.querySelectorAll(".stat-number");
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const counter = entry.target;
+            const target = Number(counter.dataset.count);
+            const suffix = counter.parentElement.textContent.includes("Accuracy") ? "%" : counter.parentElement.textContent.includes("Top") ? "%" : "+";
+            let start = 0;
+            const duration = 1200;
+            const startTime = performance.now();
+
+            function update(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const value = Math.floor(progress * target);
+                counter.textContent = value + suffix;
+                if (progress < 1) requestAnimationFrame(update);
+            }
+
+            requestAnimationFrame(update);
+            counterObserver.unobserve(counter);
+        });
+    }, { threshold: 0.45 });
+    counters.forEach((counter) => counterObserver.observe(counter));
+
+    /* Soft Magnetic Hover for Cards */
+    document.querySelectorAll(".magnetic-card").forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            card.style.transform = `translateY(-6px) rotateX(${-y / 35}deg) rotateY(${x / 35}deg)`;
+        });
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "";
+        });
+    });
+
+    /* EmailJS Contact Form
+       Replace the three values below from your EmailJS account:
+       1. Public Key
+       2. Service ID
+       3. Template ID
+    */
+    const EMAILJS_PUBLIC_KEY = "7uryHZuP9DcP0SjYy";
+    const EMAILJS_SERVICE_ID = "service_l5c0ind";
+    const EMAILJS_TEMPLATE_ID = "template_3t4ownr";
+
+    const contactForm = document.getElementById("contactForm");
+    const formStatus = document.getElementById("formStatus");
+
+    if (window.emailjs && EMAILJS_PUBLIC_KEY !== "YOUR_EMAILJS_PUBLIC_KEY") {
+        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    }
+
+    contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        formStatus.className = "form-status";
+
+        if (EMAILJS_PUBLIC_KEY.includes("YOUR_") || EMAILJS_SERVICE_ID.includes("YOUR_") || EMAILJS_TEMPLATE_ID.includes("YOUR_")) {
+            formStatus.textContent = "EmailJS setup pending: add Public Key, Service ID and Template ID in script.";
+            formStatus.classList.add("error");
+            return;
+        }
+
+        formStatus.textContent = "Sending message...";
+        try {
+            await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm);
+            formStatus.textContent = "Message sent successfully. Thank you!";
+            formStatus.classList.add("success");
+            contactForm.reset();
+        } catch (error) {
+            formStatus.textContent = "Message could not be sent. Please try again or email directly.";
+            formStatus.classList.add("error");
+        }
+    });
+
     </script>
 </body>
 
